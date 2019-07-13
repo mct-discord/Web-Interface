@@ -562,6 +562,9 @@ a:focus {
 .c-button--secondary {
   border-bottom: 1px solid #e85e00;
 }
+.c-search-select {
+  display: flex;
+}
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/

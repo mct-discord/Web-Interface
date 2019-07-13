@@ -105,7 +105,7 @@ h2 {
 /*}*/
 
 h3 {
-  font-size: 26px;
+  font-size: 18px;
   line-height: 32px;
   margin: 0 0 24px;
   font-weight: 600;
@@ -464,7 +464,7 @@ a:focus {
 .c-selector h3 {
   margin: 0;
 }
-.c-selector__head h4 {
+.c-selector__head h4 + h3 {
   margin-bottom: 8px;
 }
 .c-option {
@@ -478,7 +478,11 @@ a:focus {
   margin: 0 0 32px 0;
 }
 .c-selector__head {
-  padding: 16px 40px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 .c-selector:hover {
   background: #fff3eb;

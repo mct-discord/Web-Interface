@@ -5,5 +5,5 @@ Web interface for easy access to the bot.
 
 ## Planned Functionalities
 
-###Admin page
+### Admin page
 Statistics,...

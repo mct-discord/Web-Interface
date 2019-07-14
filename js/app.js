@@ -121,21 +121,27 @@ const listenToNextButtons = function() {
   for (let btn of nextBtn) {
     btn.addEventListener('click', function(el) {
       if (currentPart === 0) {
+        if (currentYear === (null || undefined) && currentClass === (null || undefined)) return;
+
         if (currentYear == '578656098425372697') {
+          submitRoles();
           document.querySelectorAll('.js-panel')[currentPart].classList.remove('js-panel--current');
           currentPart = 3;
           document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
 
           return;
         }
-        if (currentYear === (null || undefined) && currentClass === (null || undefined)) return;
       }
       if (currentPart === 1) {
         if (currentCourse === (null || undefined)) return;
+        submitRoles();
         document.querySelectorAll('.js-panel')[currentPart].classList.remove('js-panel--current');
         currentPart = 3;
         document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
         return;
+      }
+      if (currentPart === 2) {
+        submitRoles();
       }
       document.querySelectorAll('.js-panel')[currentPart].classList.remove('js-panel--current');
       currentPart++;
@@ -150,6 +156,7 @@ const listenToRedo = function() {
       currentClass = undefined;
       currentCourse = undefined;
       currentYear = undefined;
+      selectedModules = undefined;
       for (let item of document.querySelectorAll('.c-selector--selected')) {
         item.classList.remove('c-selector--selected');
         item.classList.remove('c-selector__opt--selected');
@@ -172,6 +179,14 @@ const listenToExtraModulesBtn = function() {
       document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
     });
   }
+};
+const submitRoles = function() {
+  if (currentYear) rolesToGive.push(currentYear);
+  if (currentClass) rolesToGive.push(currentClass);
+  if (currentCourse) rolesToGive.push(currentCourse);
+  if (selectedModules) rolesToGive.concat(selectedModules.values());
+  let submit = { roles: rolesToGive, user: 'Funergy' };
+  sendData('https://mctb.funergydev.com:5000/api/v1/roles', 'POST', JSON.stringify(submit));
 };
 const getModules = function() {
   handleData('https://mctb.funergydev.com:5000/api/v1/modules', showModules);

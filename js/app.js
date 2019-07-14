@@ -156,7 +156,7 @@ const listenToRedo = function() {
       currentClass = undefined;
       currentCourse = undefined;
       currentYear = undefined;
-      selectedModules = undefined;
+      selectedModules = {};
       for (let item of document.querySelectorAll('.c-selector--selected')) {
         item.classList.remove('c-selector--selected');
         item.classList.remove('c-selector__opt--selected');

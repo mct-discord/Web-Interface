@@ -455,7 +455,7 @@ a:focus {
   width: 125%;
 }
 .c-background__inside {
-  background: url(../img/background.png) no-repeat center;
+  background: url(../img/background.jpg) no-repeat center;
   background-size: cover;
   width: 150%;
   transform: rotate(-20deg);

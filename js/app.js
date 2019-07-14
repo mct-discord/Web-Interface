@@ -174,7 +174,7 @@ const listenToExtraModulesBtn = function() {
   }
 };
 const getModules = function() {
-  handleData('http://195.134.212.8:5000/api/v1/modules', showModules);
+  handleData('https://mctb.funergydev.com:5000/api/v1/modules', showModules);
 };
 const init = function() {
   getModules();

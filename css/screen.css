@@ -22,7 +22,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background: white;
   height: 100vh;
-  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  html {
+    overflow: hidden;
+  }
 }
 
 body {
@@ -480,6 +484,7 @@ a:focus {
 .c-selector__head {
   padding: 16px 24px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;

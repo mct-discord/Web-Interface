@@ -21,10 +21,10 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: white;
-  height: 100vh;
 }
 @media (min-width: 1024px) {
   html {
+    height: 100vh;
     overflow: hidden;
   }
 }

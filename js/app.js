@@ -174,6 +174,17 @@ const listenToExtraModulesBtn = function() {
   let objs = document.querySelectorAll('.js-add-modules');
   for (let obj of objs) {
     obj.addEventListener('click', function() {
+      if (currentPart === 0) {
+        if (currentYear !== (null || undefined) && currentYear !== '578656098425372697') {
+          document.querySelectorAll('.js-panel')[currentPart].classList.remove('js-panel--current');
+          currentPart++;
+          document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
+          return;
+        }
+      }
+      if (currentPart === 1) {
+        if (currentCourse === (null || undefined)) return;
+      }
       document.querySelectorAll('.js-panel')[currentPart].classList.remove('js-panel--current');
       currentPart = 2;
       document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
@@ -184,9 +195,10 @@ const submitRoles = function() {
   if (currentYear) rolesToGive.push(currentYear);
   if (currentClass) rolesToGive.push(currentClass);
   if (currentCourse) rolesToGive.push(currentCourse);
-  if (selectedModules) rolesToGive.concat(selectedModules.values());
+  rolesToGive = rolesToGive.concat(Object.values(selectedModules));
   let submit = { roles: rolesToGive, user: 'Funergy' };
   sendData('https://mctb.funergydev.com:5000/api/v1/roles', 'POST', JSON.stringify(submit));
+  rolesToGive = [];
 };
 const getModules = function() {
   handleData('https://mctb.funergydev.com:5000/api/v1/modules', showModules);

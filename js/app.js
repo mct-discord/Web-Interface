@@ -113,6 +113,11 @@ const listenToClassSelect = function() {
       ob.classList.add('c-selector__opt--selected');
       currentYear = ob.parentElement.parentElement.parentElement.getAttribute('opt-id');
       currentClass = ob.getAttribute('opt-id');
+      if (currentYear == '578656098425372697') {
+        document.querySelector('.js-yearbtn p b').innerHTML = 'Finish';
+      } else {
+        document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
+      }
     });
   }
 };

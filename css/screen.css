@@ -461,6 +461,12 @@ a:focus {
   transform: rotate(-20deg);
   height: calc(100vh + 15vw);
 }
+.c-panel {
+  display: none;
+}
+.js-panel--current {
+  display: block;
+}
 .c-form__title {
   width: 100%;
 }
@@ -497,6 +503,14 @@ a:focus {
   border: 1px solid #e85e00;
   color: #e85e00;
 }
+.c-selector--selected {
+  background: #fff3eb;
+  border: 1px solid #e85e00;
+  color: #e85e00;
+}
+.c-selector__opt--selected h4 {
+  font-weight: 700;
+}
 .c-selector {
   align-self: flex-start;
 }
@@ -509,6 +523,10 @@ a:focus {
   border-top: 1px solid;
   padding: 8px 16px;
   background: white;
+}
+.c-selector__opt--selected {
+  background: #fff3eb;
+  font-weight: 500;
 }
 .c-selector__opt:hover {
   background: #fff3eb;

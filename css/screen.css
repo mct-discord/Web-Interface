@@ -595,6 +595,7 @@ a:focus {
   border: 1px solid #e85e00;
   outline: none;
   margin: 0;
+  line-height: 28px;
   padding: 8px;
   width: 100%;
   font-size: 18px;
@@ -616,7 +617,11 @@ a:focus {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+.c-search-select__input--selected .c-search-select__optgroup {
+  display: block;
+}
 .c-search-select__optgroup {
+  display: none;
   border-bottom: 1px solid #e85e00;
   border-left: 1px solid #e85e00;
   border-right: 1px solid #e85e00;

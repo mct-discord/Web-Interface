@@ -87,7 +87,14 @@ const listenToSelect = function() {
           item.classList.remove('c-selector__opt--selected');
         }
         ob.classList.add('c-selector--selected');
-        if (currentPart == 0) currentYear = ob.getAttribute('opt-id');
+        if (currentPart == 0) {
+          currentYear = ob.getAttribute('opt-id');
+          if (currentYear == '578656098425372697') {
+            document.querySelector('.js-yearbtn p b').innerHTML = 'Finish';
+          } else {
+            document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
+          }
+        }
         if (currentPart == 1) {
           ob.classList.add('c-selector--selected');
           ob.classList.add('c-selector__opt--selected');

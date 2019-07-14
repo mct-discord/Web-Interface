@@ -161,6 +161,7 @@ const listenToRedo = function() {
         item.classList.remove('c-selector--selected');
         item.classList.remove('c-selector__opt--selected');
       }
+      document.querySelector('.js-search__selected').innerHTML = '';
       for (let item of document.querySelectorAll('.c-selector__opt--selected')) {
         item.classList.remove('c-selector__opt--selected');
       }

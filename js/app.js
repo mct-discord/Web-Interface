@@ -2,11 +2,6 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get('token');
-let unavailable = false;
-if (user === (undefined || null)) {
-	document.innerHTML == 'No access token given.';
-	unavailable = true;
-}
 
 let modules;
 let selectedModules = {};
@@ -225,7 +220,9 @@ const getModules = function() {
 	handleData('https://mctb.funergydev.com:5000/api/v1/modules', showModules);
 };
 const init = function() {
-	if (!unavailable) {
+	if (user === (undefined || null)) {
+		document.innerHTML == 'No access token given.';
+	} else {
 		getModules();
 		listenToFocus();
 		listenToInput();

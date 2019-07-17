@@ -1,7 +1,7 @@
 'use strict';
 
 const urlParams = new URLSearchParams(window.location.search);
-const user = urlParams.get('token');
+if (urlParams.has('token')) var user = urlParams.get('token');
 
 let modules;
 let selectedModules = {};
@@ -220,8 +220,8 @@ const getModules = function() {
 	handleData('https://mctb.funergydev.com:5000/api/v1/modules', showModules);
 };
 const init = function() {
-	if (user === (undefined || null)) {
-		document.innerHTML == 'No access token given.';
+	if (!urlParams.has('token')) {
+		document.body.innerText = 'No access token given.';
 	} else {
 		getModules();
 		listenToFocus();

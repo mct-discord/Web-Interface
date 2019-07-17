@@ -91,6 +91,7 @@ const listenToSelect = function() {
 				}
 				ob.classList.add('c-selector--selected');
 				if (currentPart == 0) {
+					currentClass = undefined;
 					currentYear = ob.getAttribute('opt-id');
 					if (currentYear == '578656098425372697') {
 						document.querySelector('.js-yearbtn p b').innerHTML = 'Finish';

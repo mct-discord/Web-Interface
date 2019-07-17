@@ -212,7 +212,7 @@ const listenToExtraModulesBtn = function() {
 	}
 };
 const getName = function(){
-    handleData((`https://mctb.funergydev.com:5000/api/v1/user/${user}`, showName);
+    handleData(`https://mctb.funergydev.com:5000/api/v1/user/${user}`, showName);
 }
 const submitRoles = function() {
 	if (currentYear) rolesToGive.push(currentYear);

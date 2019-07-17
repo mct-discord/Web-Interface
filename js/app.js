@@ -1,4 +1,9 @@
 'use strict';
+
+const urlParams = new URLSearchParams(window.location.search);
+const user = urlParams.get('token');
+if (user === (undefined || null)) window.close();
+
 let modules;
 let selectedModules = {};
 let rolesToGive = [];
@@ -208,8 +213,8 @@ const submitRoles = function() {
 	if (currentClass) rolesToGive.push(currentClass);
 	if (currentCourse) rolesToGive.push(currentCourse);
 	rolesToGive = rolesToGive.concat(Object.values(selectedModules));
-	let submit = { roles: rolesToGive, user: 'Funergy' };
-	sendData('https://mctb.funergydev.com:5000/api/v1/roles', 'POST', JSON.stringify(submit));
+	let submit = { roles: rolesToGive };
+	sendData(`http://mctb.funergydev.com:5000/api/v1/roles/${user}`, 'POST', JSON.stringify(submit));
 	rolesToGive = [];
 };
 const getModules = function() {

@@ -2,9 +2,10 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get('token');
+let unavailable = false;
 if (user === (undefined || null)) {
-	window.open('', '_parent', '');
-	window.close();
+	document.innerHTML == 'No access token given.';
+	unavailable = true;
 }
 
 let modules;
@@ -224,14 +225,16 @@ const getModules = function() {
 	handleData('https://mctb.funergydev.com:5000/api/v1/modules', showModules);
 };
 const init = function() {
-	getModules();
-	listenToFocus();
-	listenToInput();
-	listenToSelect();
-	listenToClassSelect();
-	listenToNextButtons();
-	listenToExtraModulesBtn();
-	listenToRedo();
+	if (!unavailable) {
+		getModules();
+		listenToFocus();
+		listenToInput();
+		listenToSelect();
+		listenToClassSelect();
+		listenToNextButtons();
+		listenToExtraModulesBtn();
+		listenToRedo();
+	}
 };
 
 document.addEventListener('DOMContentLoaded', function() {

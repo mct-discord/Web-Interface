@@ -213,7 +213,7 @@ const submitRoles = function() {
 	if (currentCourse) rolesToGive.push(currentCourse);
 	rolesToGive = rolesToGive.concat(Object.values(selectedModules));
 	let submit = { roles: rolesToGive };
-	sendData(`http://mctb.funergydev.com:5000/api/v1/roles/${user}`, 'POST', JSON.stringify(submit));
+	sendData(`https://mctb.funergydev.com:5000/api/v1/roles/${user}`, 'POST', JSON.stringify(submit));
 	rolesToGive = [];
 };
 const getModules = function() {

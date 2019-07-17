@@ -2,7 +2,10 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const user = urlParams.get('token');
-if (user === (undefined || null)) window.close();
+if (user === (undefined || null)) {
+	window.open('', '_parent', '');
+	window.close();
+}
 
 let modules;
 let selectedModules = {};

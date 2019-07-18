@@ -20,6 +20,10 @@ const showModules = function(data) {
 	listenToSearchSelect();
 };
 const showName = function(data) {
+	if (data.status) {
+		document.body.innerText = "Token is not active or doesn't exist";
+		return;
+	}
 	document.querySelector('.js-name b').innerHTML = data.name;
 };
 const reloadModules = function() {

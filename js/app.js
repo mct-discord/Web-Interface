@@ -19,11 +19,10 @@ const showModules = function(data) {
 	document.querySelector('.js-search__results').innerHTML = opt;
 	listenToSearchSelect();
 };
+const showErrorToken = function() {
+	document.body.innerText = "Token is not active or doesn't exist";
+};
 const showName = function(data) {
-	if (data.status) {
-		document.body.innerText = "Token is not active or doesn't exist";
-		return;
-	}
 	document.querySelector('.js-name b').innerHTML = data.name;
 };
 const reloadModules = function() {
@@ -216,7 +215,7 @@ const listenToExtraModulesBtn = function() {
 	}
 };
 const getName = function() {
-	handleData(`https://mctb.funergydev.com:5000/api/v1/user/hash/${user}`, showName);
+	handleData(`https://mctb.funergydev.com:5000/api/v1/user/hash/${user}`, showName, showErrorToken);
 };
 const submitRoles = function() {
 	if (currentYear) rolesToGive.push(currentYear);

@@ -1,4 +1,4 @@
-const handleData = function(url, callback, method = 'GET', body = null) {
+const handleData = function(url, callback, errorcallback = null, method = 'GET', body = null) {
 	fetch(url, {
 		method: method,
 		body: body,
@@ -6,12 +6,8 @@ const handleData = function(url, callback, method = 'GET', body = null) {
 	})
 		.then(function(response) {
 			if (!response.ok) {
-				if (response.json()) {
-					console.info('Er is een response met een error teruggekomen van de server');
-					return response.json();
-				} else {
-					throw Error(`Probleem bij de fetch(). Status Code: ${response.status}`);
-				}
+				errorcallback();
+				throw Error(`Probleem bij de fetch(). Status Code: ${response.status}`);
 			} else {
 				console.info('Er is een response teruggekomen van de server');
 				return response.json();

@@ -19,9 +19,9 @@ const showModules = function(data) {
 	document.querySelector('.js-search__results').innerHTML = opt;
 	listenToSearchSelect();
 };
-const showName = function(data){
-    document.querySelector('.js-name b').innerHTML = data.name;
-}
+const showName = function(data) {
+	document.querySelector('.js-name b').innerHTML = data.name;
+};
 const reloadModules = function() {
 	let opt = '';
 	for (let [key, value] of Object.entries(modules)) {
@@ -211,16 +211,16 @@ const listenToExtraModulesBtn = function() {
 		});
 	}
 };
-const getName = function(){
-    handleData(`https://mctb.funergydev.com:5000/api/v1/user/${user}`, showName);
-}
+const getName = function() {
+	handleData(`https://mctb.funergydev.com:5000/api/v1/user/hash/${user}`, showName);
+};
 const submitRoles = function() {
 	if (currentYear) rolesToGive.push(currentYear);
 	if (currentClass) rolesToGive.push(currentClass);
 	if (currentCourse) rolesToGive.push(currentCourse);
 	rolesToGive = rolesToGive.concat(Object.values(selectedModules));
 	let submit = { roles: rolesToGive };
-	sendData(`https://mctb.funergydev.com:5000/api/v1/user/${user}/roles`, 'POST', JSON.stringify(submit));
+	sendData(`https://mctb.funergydev.com:5000/api/v1/user/hash/${user}/roles`, 'POST', JSON.stringify(submit));
 	rolesToGive = [];
 };
 const getModules = function() {
@@ -230,7 +230,7 @@ const init = function() {
 	if (!urlParams.has('token')) {
 		document.body.innerText = 'No access token given.';
 	} else {
-        getName();
+		getName();
 		getModules();
 		listenToFocus();
 		listenToInput();

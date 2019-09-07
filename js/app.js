@@ -101,8 +101,10 @@ const listenToSelect = function() {
 					currentYear = ob.getAttribute('opt-id');
 					if (currentYear == '578656098425372697') {
 						document.querySelector('.js-yearbtn p b').innerHTML = 'Finish';
+						document.querySelector('.js-add-modules').style.display = 'block';
 					} else {
 						document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
+						document.querySelector('.js-add-modules').style.display = 'none';
 					}
 				}
 				if (currentPart == 1) {

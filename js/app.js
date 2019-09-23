@@ -114,6 +114,7 @@ const listenToSelect = function() {
 					ob.classList.add('c-selector__opt--selected');
 					if (currentYear === '578656108663799818') currentCourse = ob.getAttribute('opt-id1');
 					if (currentYear === '578656111041970186') currentCourse = ob.getAttribute('opt-id2');
+
 				}
 			}
 		});
@@ -134,7 +135,7 @@ const listenToClassSelect = function() {
 			ob.classList.add('c-selector__opt--selected');
 			currentYear = ob.parentElement.parentElement.parentElement.getAttribute('opt-id');
 			currentClass = ob.getAttribute('opt-id');
-			document.querySelector('.js-add-modules p').innerHTML = 'Choose additional modules';
+			// document.querySelector('.js-add-modules p').innerHTML = 'Choose additional modules';
 
 			if (currentYear == '578656098425372697') {
 				document.querySelector('.js-add-modules').style.display = 'block';
@@ -143,6 +144,8 @@ const listenToClassSelect = function() {
 				document.querySelector('.js-add-modules').style.display = 'none';
 				document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
 			}
+			document.querySelector('.js-yearbtn').style.display = 'block';
+
 		});
 	}
 };
@@ -212,6 +215,10 @@ const listenToExtraModulesBtn = function() {
 					document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
 					return;
 				}
+				currentClass = undefined;
+				currentCourse = undefined;
+				currentYear = undefined;
+				selectedModules = {};
 			}
 			if (currentPart === 1) {
 				if (currentCourse === (null || undefined)) return;

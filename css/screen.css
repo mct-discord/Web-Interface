@@ -609,6 +609,9 @@ a:focus {
 	border-bottom: 1px solid #e85e00;
 }
 
+.js-yearbtn{
+	display: none;
+}
 .c-search-select__input {
 	width: 100%;
 }

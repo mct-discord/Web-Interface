@@ -99,7 +99,7 @@ const listenToSelect = function() {
 				if (currentPart == 0) {
 					currentClass = undefined;
 					currentYear = ob.getAttribute('opt-id');
-					document.querySelector('.js-add-modules p').innerHTML = 'Choose additional modules';
+					document.querySelector('.js-add-modules p').innerHTML = 'And let me choose additional modules';
 
 					if (currentYear == '578656098425372697') {
 						document.querySelector('.js-yearbtn p b').innerHTML = 'Finish';
@@ -108,6 +108,7 @@ const listenToSelect = function() {
 						document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
 						document.querySelector('.js-add-modules').style.display = 'none';
 					}
+
 				}
 				if (currentPart == 1) {
 					ob.classList.add('c-selector--selected');
@@ -135,7 +136,7 @@ const listenToClassSelect = function() {
 			ob.classList.add('c-selector__opt--selected');
 			currentYear = ob.parentElement.parentElement.parentElement.getAttribute('opt-id');
 			currentClass = ob.getAttribute('opt-id');
-			// document.querySelector('.js-add-modules p').innerHTML = 'Choose additional modules';
+			document.querySelector('.js-add-modules p').innerHTML = 'And let me choose additional modules';
 
 			if (currentYear == '578656098425372697') {
 				document.querySelector('.js-add-modules').style.display = 'block';
@@ -144,7 +145,7 @@ const listenToClassSelect = function() {
 				document.querySelector('.js-add-modules').style.display = 'none';
 				document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
 			}
-			document.querySelector('.js-yearbtn').style.display = 'block';
+			// document.querySelector('.js-yearbtn').style.display = 'block';
 
 		});
 	}
@@ -154,7 +155,11 @@ const listenToNextButtons = function() {
 	for (let btn of nextBtn) {
 		btn.addEventListener('click', function(el) {
 			if (currentPart === 0) {
-				if (currentYear === (null || undefined) && currentClass === (null || undefined)) return;
+				if (currentYear === (null || undefined) && currentClass === (null || undefined)){
+					document.querySelectorAll('.js-error')[0].innerHTML = "You have to choose a class/year first!"
+					document.querySelectorAll('.js-error')[0].style.display = 'block';
+					return;
+				}
 
 				if (currentYear == '578656098425372697') {
 					submitRoles();
@@ -166,7 +171,11 @@ const listenToNextButtons = function() {
 				}
 			}
 			if (currentPart === 1) {
-				if (currentCourse === (null || undefined)) return;
+				if (currentCourse === (null || undefined)){
+					document.querySelectorAll('.js-error')[1].innerHTML = "You have to choose a course first!"
+					document.querySelectorAll('.js-error')[1].style.display = 'block';
+					return;
+				}
 				submitRoles();
 				document.querySelectorAll('.js-panel')[currentPart].classList.remove('js-panel--current');
 				currentPart = 3;
@@ -215,13 +224,17 @@ const listenToExtraModulesBtn = function() {
 					document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
 					return;
 				}
-				currentClass = undefined;
-				currentCourse = undefined;
-				currentYear = undefined;
-				selectedModules = {};
+			// 	currentClass = undefined;
+			// currentCourse = undefined;
+			// currentYear = undefined;
+			// selectedModules = {};
 			}
 			if (currentPart === 1) {
-				if (currentCourse === (null || undefined)) return;
+				if (currentCourse === (null || undefined)){
+					document.querySelectorAll('.js-error')[1].innerHTML = "You have to choose a course first!"
+					document.querySelectorAll('.js-error')[1].style.display = 'block';
+					return;
+				}
 			}
 			document.querySelectorAll('.js-panel')[currentPart].classList.remove('js-panel--current');
 			currentPart = 2;
@@ -245,9 +258,9 @@ const getModules = function() {
 	handleData('https://mctb.funergydev.com:5000/api/v1/modules', showModules);
 };
 const init = function() {
-	if (!urlParams.has('token')) {
-		document.body.innerText = 'No access token given.';
-	} else {
+	// if (!urlParams.has('token')) {
+	// 	document.body.innerText = 'No access token given.';
+	// } else {
 		getName();
 		getModules();
 		listenToFocus();
@@ -257,7 +270,7 @@ const init = function() {
 		listenToNextButtons();
 		listenToExtraModulesBtn();
 		listenToRedo();
-	}
+	// }
 };
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -609,9 +609,6 @@ a:focus {
 	border-bottom: 1px solid #e85e00;
 }
 
-.js-yearbtn{
-	display: none;
-}
 .c-search-select__input {
 	width: 100%;
 }
@@ -712,7 +709,14 @@ a:focus {
 		margin: 8px;
 	}
 }
-
+.c-error{
+	display: none;
+	background: rgb(255, 174, 174);
+	border: 1px solid red;
+	border-radius: 4px;
+	padding: 8px;
+	margin-bottom: 24px;
+}
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/

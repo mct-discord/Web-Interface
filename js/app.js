@@ -108,14 +108,12 @@ const listenToSelect = function() {
 						document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
 						document.querySelector('.js-add-modules').style.display = 'none';
 					}
-
 				}
 				if (currentPart == 1) {
 					ob.classList.add('c-selector--selected');
 					ob.classList.add('c-selector__opt--selected');
 					if (currentYear === '578656108663799818') currentCourse = ob.getAttribute('opt-id1');
 					if (currentYear === '578656111041970186') currentCourse = ob.getAttribute('opt-id2');
-
 				}
 			}
 		});
@@ -146,7 +144,6 @@ const listenToClassSelect = function() {
 				document.querySelector('.js-yearbtn p b').innerHTML = 'Next';
 			}
 			// document.querySelector('.js-yearbtn').style.display = 'block';
-
 		});
 	}
 };
@@ -155,8 +152,8 @@ const listenToNextButtons = function() {
 	for (let btn of nextBtn) {
 		btn.addEventListener('click', function(el) {
 			if (currentPart === 0) {
-				if (currentYear === (null || undefined) && currentClass === (null || undefined)){
-					document.querySelectorAll('.js-error')[0].innerHTML = "You have to choose a class/year first!"
+				if (currentYear === (null || undefined) && currentClass === (null || undefined)) {
+					document.querySelectorAll('.js-error')[0].innerHTML = 'You have to choose a class/year first!';
 					document.querySelectorAll('.js-error')[0].style.display = 'block';
 					return;
 				}
@@ -171,8 +168,8 @@ const listenToNextButtons = function() {
 				}
 			}
 			if (currentPart === 1) {
-				if (currentCourse === (null || undefined)){
-					document.querySelectorAll('.js-error')[1].innerHTML = "You have to choose a course first!"
+				if (currentCourse === (null || undefined)) {
+					document.querySelectorAll('.js-error')[1].innerHTML = 'You have to choose a course first!';
 					document.querySelectorAll('.js-error')[1].style.display = 'block';
 					return;
 				}
@@ -224,14 +221,14 @@ const listenToExtraModulesBtn = function() {
 					document.querySelectorAll('.js-panel')[currentPart].classList.add('js-panel--current');
 					return;
 				}
-			// 	currentClass = undefined;
-			// currentCourse = undefined;
-			// currentYear = undefined;
-			// selectedModules = {};
+				// 	currentClass = undefined;
+				// currentCourse = undefined;
+				// currentYear = undefined;
+				// selectedModules = {};
 			}
 			if (currentPart === 1) {
-				if (currentCourse === (null || undefined)){
-					document.querySelectorAll('.js-error')[1].innerHTML = "You have to choose a course first!"
+				if (currentCourse === (null || undefined)) {
+					document.querySelectorAll('.js-error')[1].innerHTML = 'You have to choose a course first!';
 					document.querySelectorAll('.js-error')[1].style.display = 'block';
 					return;
 				}
@@ -258,9 +255,9 @@ const getModules = function() {
 	handleData('https://mct.api.funergydev.com/api/v1/modules', showModules);
 };
 const init = function() {
-	// if (!urlParams.has('token')) {
-	// 	document.body.innerText = 'No access token given.';
-	// } else {
+	if (!urlParams.has('token')) {
+		document.body.innerText = 'No access token given.';
+	} else {
 		getName();
 		getModules();
 		listenToFocus();
@@ -270,7 +267,7 @@ const init = function() {
 		listenToNextButtons();
 		listenToExtraModulesBtn();
 		listenToRedo();
-	// }
+	}
 };
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -459,10 +459,13 @@ a:focus {
 	position: fixed;
 	top: 0;
 	left: 0;
-	padding: calc(25px - 0.06px) calc(17px + 25px);
+	display: flex;
+	align-content: center;
+	justify-content: center;
 	z-index: 1000;
 }
 .c-logo svg {
+	width: 48px;
 	fill: white;
 }
 @media (prefers-color-scheme: dark) {

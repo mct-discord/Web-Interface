@@ -455,20 +455,15 @@ a:focus {
 \*------------------------------------*/
 .c-logo {
 	width: calc(48px + (17px + 25px)*2);
-	height: calc(48px + (17px + 25px)*2);
 	position: fixed;
 	top: 0;
 	left: 0;
-	padding: calc(25px - 0.06px) calc(17px + 25px);
+	padding: calc(25px - 0.045px) calc(17px + 25px);
 	z-index: 1000;
+	background: var(--global-color-alpha);
 }
 .c-logo svg {
 	fill: white;
-}
-@media (prefers-color-scheme: dark) {
-	.c-logo {
-		background: var(--global-color-alpha);
-	}
 }
 .c-background {
 	transform: rotate(20deg);

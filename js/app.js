@@ -255,9 +255,9 @@ const getModules = function() {
 	handleData('https://mct.api.funergydev.com/api/v1/modules', showModules);
 };
 const init = function() {
-	if (!urlParams.has('token')) {
-		document.body.innerText = 'No access token given.';
-	} else {
+	// if (!urlParams.has('token')) {
+	// 	document.body.innerText = 'No access token given.';
+	// } else {
 		getName();
 		getModules();
 		listenToFocus();
@@ -267,7 +267,7 @@ const init = function() {
 		listenToNextButtons();
 		listenToExtraModulesBtn();
 		listenToRedo();
-	}
+	// }
 };
 
 document.addEventListener('DOMContentLoaded', function() {

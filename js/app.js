@@ -240,7 +240,7 @@ const listenToExtraModulesBtn = function() {
 	}
 };
 const getName = function() {
-	handleData(`https://mct.api.funergydev.com/api/v1/user/hash/${user}`, showName, showErrorToken);
+	handleData(`https://mctdiscord.westeurope.cloudapp.azure.com/api/v1/user/hash/${user}`, showName, showErrorToken);
 };
 const submitRoles = function() {
 	if (currentYear) rolesToGive.push(currentYear);
@@ -248,11 +248,11 @@ const submitRoles = function() {
 	if (currentCourse) rolesToGive.push(currentCourse);
 	rolesToGive = rolesToGive.concat(Object.values(selectedModules));
 	let submit = { roles: rolesToGive };
-	sendData(`https://mct.api.funergydev.com/api/v1/user/hash/${user}/roles`, 'POST', JSON.stringify(submit));
+	sendData(`https://mctdiscord.westeurope.cloudapp.azure.com/api/v1/user/hash/${user}/roles`, 'POST', JSON.stringify(submit));
 	rolesToGive = [];
 };
 const getModules = function() {
-	handleData('https://mct.api.funergydev.com/api/v1/modules', showModules);
+	handleData('https://mctdiscord.westeurope.cloudapp.azure.com/api/v1/modules', showModules);
 };
 const init = function() {
 	if (!urlParams.has('token')) {

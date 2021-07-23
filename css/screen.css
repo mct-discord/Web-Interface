@@ -556,12 +556,18 @@ a:focus {
 	align-self: flex-start;
 }
 
+.c-selector--selectable{
+	cursor: pointer;
+}
+
 .c-selector__optrow {
 	display: flex;
-}
-.c-selector__opt {
-	width: calc(100% / 3);
 	border-top: 1px solid;
+}
+
+.c-selector__opt {
+	cursor: pointer;
+	width: calc(100% / 3);
 	padding: 8px 16px;
 	background: var(--global-color-neutral);
 }
@@ -613,6 +619,7 @@ a:focus {
 }
 
 .c-button {
+	cursor: pointer;
 	display: flex;
 }
 .c-button svg {
